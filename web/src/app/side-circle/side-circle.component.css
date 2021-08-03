@@ -1,0 +1,24 @@
+#side-circle, #side-circle-glowing {
+    position: fixed;
+
+    width: min(20vw, 20vh);
+    height: 0;
+    padding-bottom: 100%;
+
+    left: -50%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+}
+
+#side-circle {
+    z-index: 2;
+    filter: brightness(60%);
+}
+
+#side-circle-glowing {
+    z-index: 1;
+    filter: blur(20%);
+}
