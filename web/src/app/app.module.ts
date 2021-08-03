@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SideCircleModule } from './side-circle/side-circle.module';
 import { HomeModule } from './page-parts/home/home.module';
+import { ExtrasModule } from './extras/extras.module';
+import { LanguagesModule } from './page-parts/languages/languages.module';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, SideCircleModule, HomeModule],
+    imports: [BrowserModule, SideCircleModule, HomeModule, ExtrasModule, LanguagesModule],
     providers: [],
     bootstrap: [AppComponent],
 })

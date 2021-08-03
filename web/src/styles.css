@@ -26,6 +26,6 @@ body {
     height: 100vh;
 }
 
-label {
+label, .label {
     font-family: japoki;
 }
