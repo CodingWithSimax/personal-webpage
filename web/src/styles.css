@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: japoki;
+    src: url("assets/fonts/jaapokki-regular.ttf");
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    top: 100%;
+    
+}
+
+#page-grid {
+    display: flex;
+    flex-direction: row;
+}
+
+.page-part {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+label {
+    font-family: japoki;
+}

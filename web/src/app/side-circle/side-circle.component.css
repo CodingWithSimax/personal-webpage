@@ -1,24 +1,46 @@
-#side-circle, #side-circle-glowing {
+#side-circle-bg {
     position: fixed;
 
     width: min(20vw, 20vh);
-    height: 0;
-    padding-bottom: 100%;
+    height: min(20vw, 20vh);
 
-    left: -50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
 
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+}
+#side-circle-bg:hover {
+    width: min(60vw, 60vh);
+    height: min(60vw, 60vh);
+}
+#side-circle-bg:hover > #side-circle-glowing {
+    opacity: 100%;
+}
+#side-circle-bg:hover > #side-circle {
+    filter: brightness(100%);
+}
+
+#side-circle, #side-circle-glowing {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: linear-gradient(to left, #4facfe 0%, #00f2fe 100%);
 }
 
 #side-circle {
     z-index: 2;
-    filter: brightness(60%);
+    filter: brightness(85%);
 }
-
 #side-circle-glowing {
     z-index: 1;
-    filter: blur(20%);
+    filter: blur(min(20vw, 20vh));
+    opacity: 0%;
+}
+
+#side-circle, #side-circle-bg, #side-circle-glowing {
+    transition: all 0.5s;
 }

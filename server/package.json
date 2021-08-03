@@ -8,7 +8,7 @@
     "prebuild": "npm run check",
     "build": "./node_modules/.bin/tsc",
     "prestart": "npm run build",
-    "start": "node main.js"
+    "start": "cd ../ && node ./server/dist/main.js"
   },
   "keywords": [],
   "author": "",
