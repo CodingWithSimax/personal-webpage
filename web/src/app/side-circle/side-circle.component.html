@@ -1,6 +1,7 @@
-<div id="side-circle-bg">
+<div id="side-circle-bg" [style.transform]="'translate(-50%, -50%) rotate(' + rotation + 'deg)'">
     <div id="side-circle">
-    
+        <app-circle-page src="assets/images/home-solid.svg" [row]="0" [maxRowLength]="6"></app-circle-page>
+        <app-circle-page src="assets/images/tv-solid.svg" [row]="1" [maxRowLength]="6"></app-circle-page>
     </div>
     <div id="side-circle-glowing"></div>
 </div>

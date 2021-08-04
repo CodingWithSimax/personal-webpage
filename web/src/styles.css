@@ -16,8 +16,7 @@ body {
     left: 0px;
     top: 0px;
     width: 100vw;
-    display: flex;
-    flex-direction: row;
+    display: grid;
 }
 
 .page-part {

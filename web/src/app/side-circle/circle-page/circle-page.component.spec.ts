@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LanguagesComponent } from './languages.component';
+import { CirclePageComponent } from './circle-page.component';
 
-describe('LanguagesComponent', () => {
-    let component: LanguagesComponent;
-    let fixture: ComponentFixture<LanguagesComponent>;
+describe('CirclePageComponent', () => {
+    let component: CirclePageComponent;
+    let fixture: ComponentFixture<CirclePageComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [LanguagesComponent],
+            declarations: [CirclePageComponent],
         }).compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(LanguagesComponent);
+        fixture = TestBed.createComponent(CirclePageComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

@@ -9,7 +9,13 @@ import { LanguagesModule } from './page-parts/languages/languages.module';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, SideCircleModule, HomeModule, ExtrasModule, LanguagesModule],
+    imports: [
+        BrowserModule,
+        SideCircleModule,
+        HomeModule,
+        ExtrasModule,
+        LanguagesModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
