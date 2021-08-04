@@ -1,0 +1,17 @@
+.progress-indicator {
+    position: absolute;
+    
+    top: 50%;
+    left: 20px;
+
+    height: 50%;
+    left: 0px;
+
+    transform: translateY(-50%);
+
+    transition: width 1.5s;
+
+    background-color: #fff;
+
+    border-radius: 100px;
+}

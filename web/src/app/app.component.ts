@@ -10,6 +10,8 @@ export class AppComponent {
     public displayMainPage = false;
 
     constructor() {
+        window.scrollTo(0, 0);
+
         document.body.style.overflowX = 'hidden';
         document.body.style.overflowY = 'hidden';
     }
