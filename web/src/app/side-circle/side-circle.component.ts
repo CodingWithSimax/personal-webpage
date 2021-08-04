@@ -7,6 +7,7 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 })
 export class SideCircleComponent implements OnInit {
     @Input() maxRowLength: number | undefined;
+    @Input() activateCircle: boolean | undefined;
 
     public rotation: number | undefined = 0;
 

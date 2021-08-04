@@ -1,4 +1,4 @@
-.circle-page {
+.circle-page, .circle-page-shadow {
     position: absolute;
 
     max-width: 20%;
@@ -9,8 +9,24 @@
 
     transform: translateY(-50%);
 }
+.circle-page {
+    pointer-events: all;
+}
+.circle-page:hover {
+    cursor: pointer;
+}
+.circle-page-shadow {
+    opacity: 0%;
+    filter: blur(1em);
+    transition: opacity 0.5s;
+}
+.circle-page:hover + .circle-page-shadow {
+    opacity: 70%;
+}
 
 .circle-page-parent {
+    pointer-events: none;
+
     position: absolute;
     
     width: 100%;

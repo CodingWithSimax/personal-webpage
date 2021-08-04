@@ -1,0 +1,10 @@
+<label id="code-background">
+    <app-line-beginning [style.opacity]="curLine >= 1 ? '100%' : '0%'" class="animation"></app-line-beginning>
+    <span class="white-console" [style.opacity]="curLine >= 2 ? '100%' : '0%'">cd ./my-project</span>
+    <p class="no-space"></p>
+    <app-line-beginning [style.opacity]="curLine >= 3 ? '100%' : '0%'" class="animation"></app-line-beginning>
+    <span class="white-console" [style.opacity]="curLine >= 4 ? '100%' : '0%'">sudo npm start</span>
+    <p class="no-space"></p>
+    <span class="white-console" [style.opacity]="curLine >= 5 ? '100%' : '0%'">initialising project...</span>
+    <span class="white-console" [style.opacity]="curLine >= 6 ? '100%' : '0%'">{{ loadingBarText }}</span>
+</label>

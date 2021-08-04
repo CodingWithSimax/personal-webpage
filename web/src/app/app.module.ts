@@ -6,6 +6,7 @@ import { SideCircleModule } from './side-circle/side-circle.module';
 import { HomeModule } from './page-parts/home/home.module';
 import { ExtrasModule } from './extras/extras.module';
 import { LanguagesModule } from './page-parts/languages/languages.module';
+import { CodeBackgroundModule } from './code-background/code-background.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { LanguagesModule } from './page-parts/languages/languages.module';
         HomeModule,
         ExtrasModule,
         LanguagesModule,
+        CodeBackgroundModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

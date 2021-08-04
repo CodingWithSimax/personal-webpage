@@ -1,3 +1,4 @@
 <div class="circle-page-parent" [style.transform]="'translate(-50%, -50%) rotate(' + rotation + 'deg)'">
-    <img class="circle-page" [src]="src">
+    <img class="circle-page" [src]="src" (click)="onclick($event)">
+    <img class="circle-page-shadow" [src]="src">
 </div>

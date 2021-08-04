@@ -1,0 +1,12 @@
+.blue-console {
+    color: aqua;
+}
+.gray-console {
+    color: gray;
+}
+.magenta-console {
+    color: blueviolet;
+}
+.blue-console, .gray-console, .magenta-console {
+    transition: opacity 0.5s;
+}

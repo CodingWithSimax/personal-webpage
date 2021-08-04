@@ -1,6 +1,8 @@
-<app-side-circle [maxRowLength]="6"></app-side-circle>
+<app-code-background class="opacity-animation" [style.opacity]="displayMainPage ? '0%' : '100%'"></app-code-background>
 
-<div id="page-grid">
+<app-side-circle class="opacity-animation" [maxRowLength]="6" [activateCircle]="displayMainPage"></app-side-circle>
+
+<div class="opacity-animation" id="page-grid" [style.top]="displayMainPage ? '0px' : '100vh'">
     <app-home class="page-part"></app-home>
     <app-languages class="page-part"></app-languages>
 </div>

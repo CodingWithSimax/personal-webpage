@@ -8,7 +8,7 @@ body {
     overflow-x: hidden;
     width: 100%;
     top: 100%;
-    
+    background-color: #D8E3E7;
 }
 
 #page-grid {
@@ -17,6 +17,7 @@ body {
     top: 0px;
     width: 100vw;
     display: grid;
+    transition: top 1s;
 }
 
 .page-part {
@@ -27,4 +28,7 @@ body {
 
 label, .label {
     font-family: japoki;
+}
+.opacity-animation {
+    transition: opacity 1s;
 }

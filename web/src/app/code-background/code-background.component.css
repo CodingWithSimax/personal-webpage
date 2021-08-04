@@ -1,0 +1,31 @@
+#code-background {
+    position: absolute;
+
+    width: calc(100vw - min(5vw, 5vh));
+    height: calc(100vh - min(5vw, 5vh));
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: min(1vw, 1vh);
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+    word-wrap: break-word;
+
+    font-size: 30px;
+
+    z-index: 20;
+
+    color: rgb(27, 187, 27);
+}
+
+.white-console, .animation {
+    color: white;
+    transition: opacity 0.5s;
+}
+.no-space {
+    margin: 0px;
+    padding: 0px;
+}

@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-    title = 'personal-webpage-web';
+    public title = 'personal-webpage-web';
+    public displayMainPage = false;
+
+    constructor() {
+        document.body.style.overflowX = 'hidden';
+        document.body.style.overflowY = 'hidden';
+    }
+
+    public ngOnInit(): void {
+        setTimeout(() => {
+            this.displayMainPage = true;
+            document.body.style.overflowY = 'unset';
+        }, 8 * 1000);
+    }
 }
