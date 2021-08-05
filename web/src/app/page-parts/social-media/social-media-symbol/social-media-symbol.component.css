@@ -4,6 +4,7 @@
     top: 0;
     width: 100%;
     height: 100%;
+    display: flex;
 }
 
 .social-media-symbol:hover {
@@ -19,33 +20,34 @@
 }
 
 .social-media-symbol-image {
-    position: absolute;
-
-    left: 0;
-    top: 50%;
-
     max-height: 100%;
     width: auto;
-
-    transform: translateY(-50%);
 
     color: white;
     fill: white;
 
     opacity: 80%;
+
+    transition: opacity 0.5s;
 }
 
 .social-media-symbol-label {
+    position: relative;
+}
+.social-media-symbol-label-sub {
     position: absolute;
 
-    right: 0;
+    width: 100%;
+    left: 0;
+
     top: 50%;
-
-    width: calc(90% - 5px);
-
     transform: translateY(-50%);
+    
+    margin-left: 5px;
 
     color: white;
 
     opacity: 80%;
+
+    transition: opacity 0.5s;
 }

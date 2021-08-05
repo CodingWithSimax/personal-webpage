@@ -12,5 +12,9 @@ export class SocialMediaSymbolComponent implements OnInit {
 
     constructor() {}
 
-    ngOnInit(): void {}
+    public ngOnInit(): void {}
+
+    public redirect(): void {
+        if (this.href != undefined) window.location.replace(this.href);
+    }
 }

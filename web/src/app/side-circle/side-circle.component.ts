@@ -49,9 +49,8 @@ export class SideCircleComponent implements OnInit {
             const newRotationPosition =
                 Math.ceil(procentScroll) * (360 / <number>this.maxRowLength);
             this.rotation =
-                -1 *
-                (lastRotationPosition +
-                    (newRotationPosition - lastRotationPosition) * procent);
+                lastRotationPosition +
+                (newRotationPosition - lastRotationPosition) * procent;
         }
     }
 }

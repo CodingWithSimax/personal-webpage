@@ -1,6 +1,9 @@
 import express = require("express");
 
 import { setupTelegramAPI } from "./telegram-api";
+import { setupPorts } from "./port-redirects";
+
+setupPorts();
 
 // --- //
 const PORT = 3000;

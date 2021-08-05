@@ -9,6 +9,7 @@ import { LanguagesModule } from './page-parts/languages/languages.module';
 import { CodeBackgroundModule } from './code-background/code-background.module';
 import { ContactFormModule } from './page-parts/contact-form/contact-form.module';
 import { SocialMediaModule } from './page-parts/social-media/social-media.module';
+import { CreditsModule } from './page-parts/credits/credits.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { SocialMediaModule } from './page-parts/social-media/social-media.module
         CodeBackgroundModule,
         ContactFormModule,
         SocialMediaModule,
+        CreditsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

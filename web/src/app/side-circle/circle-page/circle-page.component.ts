@@ -18,7 +18,7 @@ export class CirclePageComponent implements OnInit {
 
     public ngOnInit(): void {
         const angleSpace = 360 / <number>this.maxRowLength;
-        const angle = angleSpace * <number>this.row;
+        const angle = angleSpace * <number>this.row * -1;
         this.rotation = angle;
     }
 

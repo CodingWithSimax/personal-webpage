@@ -1,4 +1,6 @@
-<div class="social-media-symbol">
+<div class="social-media-symbol" (click)="redirect()">
     <img [src]="src" class="social-media-symbol-image">
-    <label class="social-media-symbol-label">{{ value }}</label>
+    <div class="social-media-symbol-label">
+        <label class="social-media-symbol-label-sub">{{ value }}</label>
+    </div>
 </div>

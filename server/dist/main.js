@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const telegram_api_1 = require("./telegram-api");
+const port_redirects_1 = require("./port-redirects");
+port_redirects_1.setupPorts();
 // --- //
 const PORT = 3000;
 // --- //
