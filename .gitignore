@@ -1,3 +1,5 @@
 /server/node_modules
 /web/node_modules
 /node_modules
+/data/telegram_key.key
+/data/telegram_channel_id.txt

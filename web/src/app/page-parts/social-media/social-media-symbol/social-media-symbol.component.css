@@ -1,0 +1,51 @@
+.social-media-symbol {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.social-media-symbol:hover {
+    cursor: pointer;
+}
+.social-media-symbol:hover > .social-media-symbol-image {
+    opacity: 100%;
+    cursor: pointer;
+}
+.social-media-symbol:hover > .social-media-symbol-label {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.social-media-symbol-image {
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    max-height: 100%;
+    width: auto;
+
+    transform: translateY(-50%);
+
+    color: white;
+    fill: white;
+
+    opacity: 80%;
+}
+
+.social-media-symbol-label {
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    width: calc(90% - 5px);
+
+    transform: translateY(-50%);
+
+    color: white;
+
+    opacity: 80%;
+}

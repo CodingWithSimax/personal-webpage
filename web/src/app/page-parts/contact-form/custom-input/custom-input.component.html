@@ -1,0 +1,10 @@
+<div class="custom-input">
+    <div class="custom-input-sub-bar" [style.opacity]="subBarOpacity" [style.height]="barHeight" [style.zIndex]="'3'" [style.backgroundColor]="'red'"></div>
+    <div class="custom-input-sub-bar" [style.height]="barHeight" [style.backgroundColor]="'green'"></div>
+
+    <div *ngIf="rows != undefined && rows > 1" class="custom-input-preview custom-input-center-top" [style.opacity]="opacityPreview">{{preview}}</div>
+    <div *ngIf="rows == undefined || rows == 1" class="custom-input-preview custom-input-center-middle" [style.opacity]="opacityPreview">{{preview}}</div>
+
+    <textarea *ngIf="rows != undefined && rows > 1" class="custom-input-textarea" (keyup)="onKey($event)" [rows]="rows" [cols]="columns" (blur)="onBlur($event)" (focus)="onFocus($event)"></textarea>
+    <input *ngIf="rows == undefined || rows == 1" class="custom-input-textarea" (keyup)="onKey($event)" (blur)="onBlur($event)" (focus)="onFocus($event)">
+</div>

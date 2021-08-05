@@ -1,0 +1,81 @@
+@font-face {
+    font-family: japoki;
+    src: url("/assets/fonts/jaapokki-regular.ttf");
+}
+
+#message-boxes {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+
+    height: calc(100% - 20px);
+    width: calc(max(35vw, 35vh) - 20px);
+
+    display: grid;
+    grid-auto-rows: min(20vw, 20vh);
+    grid-row-gap: min(2vw, 2vh);
+}
+
+@keyframes message-box-animation-fade-in {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+@keyframes message-box-animation-fade-out {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.message-box {
+    position: relative;
+
+    background-color: white;
+    box-shadow: min(0.1vw, 0.1vh) min(0.1vw, 0.1vh) min(2vw, 2vh) min(0.1vw, 0.1vh) black;
+
+    border-style: solid;
+    border-width: 0px;
+    
+    border-radius: 10px;
+}
+
+.message-box-content {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 60%;
+    height: 100%;
+}
+
+.message-box-text {
+    font-family: japoki;
+    font-size: min(2.5vw, 2.5vh);
+}
+
+.message-box-title {
+    font-family: japoki;
+    font-size: min(3.5vw, 3.5vh);
+}
+
+.message-box-text, .message-box-title {
+    position: relative;
+    left: 5px;
+}
+
+.message-box-image {
+    position: absolute;
+
+    top: 5px;
+    right: 5px;
+    max-width: 20%;
+    max-height: 100%;
+}

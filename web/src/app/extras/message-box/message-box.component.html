@@ -1,0 +1,10 @@
+<div id="message-boxes">
+    <div class="message-box" *ngFor="let message of messageBoxes" [style.animation]="message.fadeOut ? 'message-box-animation-fade-out 1s' : 'message-box-animation-fade-in 1s'">
+        <div class="message-box-content">
+            <label class="message-box-title">{{ message.title }}</label>
+            <p></p>
+            <label class="message-box-text">{{ message.text }}</label>
+        </div>
+        <img [src]="message.image" class="message-box-image">
+    </div>
+</div>
