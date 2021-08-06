@@ -1,4 +1,10 @@
 {
+    "_comments": {
+        "nginx": {
+            "restart": "for restarting type systemctl restart nginx",
+            "important data": "important data is in path /etc/nginx/sites-*"
+        }
+    },
     "portRedirects": {
         "3001": "https://www.youtube.com/channel/UCOcCXCfsgXPBLY4URamvhGg",
         "3002": "https://twitter.com/Simax___",
