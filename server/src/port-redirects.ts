@@ -13,7 +13,9 @@ export function setupPorts(config: Config): void {
                     res.end();
                 }
             });
-            server.listen(parseInt(key), () => console.log("listening to port " + key));
+            server.listen(parseInt(key), () =>
+                console.log("listening to port " + key)
+            );
         });
     }
 }

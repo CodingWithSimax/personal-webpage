@@ -3,12 +3,14 @@ import fs = require("fs");
 
 import { setupTelegramAPI } from "./telegram-api";
 import { setupPorts } from "./port-redirects";
-import {Config} from "./config-interface";
+import { Config } from "./config-interface";
 
 // --- //
 const PORT = 3000;
 
-const CONFIG: Config = JSON.parse(fs.readFileSync("./data/config.json").toString());
+const CONFIG: Config = JSON.parse(
+    fs.readFileSync("./data/config.json").toString()
+);
 // --- //
 
 setupPorts(CONFIG);

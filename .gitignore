@@ -1,4 +1,6 @@
 /server/node_modules
+/server/dist
+/web/dist
 /web/node_modules
 /node_modules
 /data/telegram_key.key

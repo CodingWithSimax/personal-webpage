@@ -6,7 +6,7 @@
     left: min(5vw, 5vh);
     
     color: white;
-    font-size: 40px;
+    font-size: max(3vw, 3vh);
     font-weight: bold;
 
     border-style: solid;

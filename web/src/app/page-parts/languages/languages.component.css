@@ -58,7 +58,8 @@
 
     color: white;
 
-    font-size: min(4vw, 4vh);
+    font-size: min(3vw, 3vh);
+    word-wrap: break-word;
 
     text-transform: uppercase;
 }
