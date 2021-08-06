@@ -6,7 +6,10 @@
     "build": "cd ./server && npm run build",
     "postbuild": "cd ./web && npm run build",
     "prestart": "npm run build",
-    "start": "node ./server/dist/main.js"
+    "start": "node ./server/dist/main.js",
+    "prepackage_start": "cd ./server && npm install",
+    "package_start": "cd ./web && npm install",
+    "postpackage_start": "npm start"
   },
   "keywords": [],
   "author": "",

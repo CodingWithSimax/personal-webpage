@@ -24,4 +24,5 @@ setupTelegramAPI(app);
 
 app.listen(PORT, () => {
     console.log(`Now listening to port ${PORT}`);
+    console.log("started server");
 });
