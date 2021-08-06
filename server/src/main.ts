@@ -1,13 +1,17 @@
 import express = require("express");
+import fs = require("fs");
 
 import { setupTelegramAPI } from "./telegram-api";
 import { setupPorts } from "./port-redirects";
-
-setupPorts();
+import {Config} from "./config-interface";
 
 // --- //
 const PORT = 3000;
+
+const CONFIG: Config = JSON.parse(fs.readFileSync("./data/config.json").toString());
 // --- //
+
+setupPorts(CONFIG);
 
 const app = express();
 

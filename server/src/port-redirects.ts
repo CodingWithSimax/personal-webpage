@@ -1,12 +1,8 @@
 import http = require("http");
+import { Config } from "./config-interface";
 
-const PORT_REDIRECTS = {
-    3001: "https://www.youtube.com/channel/UCOcCXCfsgXPBLY4URamvhGg",
-    3002: "https://twitter.com/Simax___",
-    3003: "https://discord.gg/ZpFJJ4yD7e",
-};
-
-export function setupPorts(): void {
+export function setupPorts(config: Config): void {
+    const PORT_REDIRECTS = config.portRedirects;
     for (const key of Object.keys(PORT_REDIRECTS)) {
         new Promise((resolve) => {
             const server = http.createServer(function (req, res) {
@@ -17,7 +13,7 @@ export function setupPorts(): void {
                     res.end();
                 }
             });
-            server.listen(key, () => console.log("listening to port " + key));
+            server.listen(parseInt(key), () => console.log("listening to port " + key));
         });
     }
 }
