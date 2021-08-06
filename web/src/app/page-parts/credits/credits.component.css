@@ -18,6 +18,8 @@
     left: 40%;
     text-align: center;
     width: 20%;
+
+    font-size: min(3vw, 3vh);
 }
 
 /* from shapedivider */
