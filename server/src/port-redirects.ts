@@ -7,7 +7,7 @@ export async function setupPorts(
 ): Promise<void> {
     const redirectApp = express();
 
-    redirectApp.get("/r", (req: express.Request, res: express.Response) => {
+    redirectApp.get("/", (req: express.Request, res: express.Response) => {
         try {
             const redirectPath = JSON.parse(<string>req.query.redirection);
             console.log("redirecting to " + redirectPath);
