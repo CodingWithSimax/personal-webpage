@@ -8,27 +8,31 @@ export async function setupPorts(
     const redirectApp = express();
 
     redirectApp.get("/", (req: express.Request, res: express.Response) => {
+        let redirectPath = undefined;
+
         try {
-            const redirectPath = JSON.parse(<string>req.query.redirection);
-            console.log("redirecting to " + redirectPath);
-            if (redirectPath != null) {
-                let result = null;
-                for (const portRedirect of config.portRedirects) {
-                    if (
-                        portRedirect.prefixes.indexOf(
-                            redirectPath.split(".")[0]
-                        ) > -1
-                    )
-                        result = portRedirect;
-                }
-                if (result != null) {
-                    res.redirect(result.url);
-                    return;
-                }
-            }
+            redirectPath = JSON.parse(<string>req.query.redirection);
         } catch (error) {
-            console.log("error while trying to redirect.");
+            redirectPath = req.query.redirection
         }
+        
+        console.log("redirecting to " + redirectPath);
+        if (redirectPath != null) {
+            let result = null;
+            for (const portRedirect of config.portRedirects) {
+                if (
+                    portRedirect.prefixes.indexOf(
+                        redirectPath.split(".")[0]
+                    ) > -1
+                )
+                    result = portRedirect;
+            }
+            if (result != null) {
+                res.redirect(result.url);
+                return;
+            }
+        }
+        
         res.json({ error: "error" });
     });
 
