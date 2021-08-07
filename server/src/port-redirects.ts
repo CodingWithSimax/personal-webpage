@@ -1,21 +1,38 @@
-import http = require("http");
+import express = require("express");
 import { Config } from "./config-interface";
 
-export function setupPorts(config: Config): void {
-    const PORT_REDIRECTS = config.portRedirects;
-    for (const key of Object.keys(PORT_REDIRECTS)) {
-        new Promise((resolve) => {
-            const server = http.createServer(function (req, res) {
-                if (req.url === "/") {
-                    res.writeHead(302, {
-                        location: PORT_REDIRECTS[key],
-                    });
-                    res.end();
+export async function setupPorts(
+    config: Config,
+    portRedirects: number
+): Promise<void> {
+    const redirectApp = express();
+
+    redirectApp.get("/r", (req: express.Request, res: express.Response) => {
+        try {
+            const redirectPath = JSON.parse(<string>req.query.redirection);
+            console.log("redirecting to " + redirectPath);
+            if (redirectPath != null) {
+                let result = null;
+                for (const portRedirect of config.portRedirects) {
+                    if (
+                        portRedirect.prefixes.indexOf(
+                            redirectPath.split(".")[0]
+                        ) > -1
+                    )
+                        result = portRedirect;
                 }
-            });
-            server.listen(parseInt(key), () =>
-                console.log("listening to port " + key)
-            );
-        });
-    }
+                if (result != null) {
+                    res.redirect(result.url);
+                    return;
+                }
+            }
+        } catch (error) {
+            console.log("error while trying to redirect.");
+        }
+        res.json({ error: "error" });
+    });
+
+    redirectApp.listen(portRedirects, () => {
+        console.log(`now listening to ${portRedirects} for redirects.`);
+    });
 }

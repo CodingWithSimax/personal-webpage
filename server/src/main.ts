@@ -7,13 +7,14 @@ import { Config } from "./config-interface";
 
 // --- //
 const PORT = 3000;
+const PORT_REDIRECTS = 3001;
 
 const CONFIG: Config = JSON.parse(
     fs.readFileSync("./data/config.json").toString()
 );
 // --- //
 
-setupPorts(CONFIG);
+setupPorts(CONFIG, PORT_REDIRECTS);
 
 const app = express();
 

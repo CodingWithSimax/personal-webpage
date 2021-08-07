@@ -1,3 +1,6 @@
 export interface Config {
-    portRedirects: { [key: string]: string };
+    portRedirects: Array<{
+        prefixes: Array<string>;
+        url: string;
+    }>;
 }
