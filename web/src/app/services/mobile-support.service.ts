@@ -31,7 +31,7 @@ export class MobileSupportService {
         const isMobile =
             (this.deviceDetectorService.isMobile() &&
                 !this.deviceDetectorService.isTablet()) ||
-            viewportHeight > viewportWidth;
+            viewportHeight > viewportWidth * 0.75;
 
         const update: UpdateData = {
             isMobile:

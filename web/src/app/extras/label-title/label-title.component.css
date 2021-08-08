@@ -6,7 +6,7 @@
     left: min(5vw, 5vh);
     
     color: white;
-    font-size: min(3vw, 3vh);
+    font-size: min(4vw, 4vh);
     font-weight: bold;
 
     border-style: solid;
@@ -28,7 +28,7 @@
     top: 110px;
 
     color: white;
-    font-size: min(3vw, 3vh);
+    font-size: min(4vw, 4vh);
     font-weight: bold;
 
     white-space: nowrap;
@@ -45,7 +45,7 @@
     border-style: solid;
     border-width: min(0.5vw, 0.5vh);
 
-    border-width: rgba(0, 0, 0, 0.6);
+    border-color: rgba(0, 0, 0, 0.6);
 }
 .label-title-border-right {
     right: 0;

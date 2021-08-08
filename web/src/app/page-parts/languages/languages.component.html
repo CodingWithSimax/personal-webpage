@@ -11,8 +11,8 @@
 
     <app-label-title value="programming and scripting languages"></app-label-title>
 
-    <div id="languages-grid">
-        <div class="grid-element-border grid-element-border-right"></div>
+    <div id="languages-grid" [attr.isMobile]="isMobile">
+        <div class="grid-element-border grid-element-border-right" *ngIf="!isMobile"></div>
         <div class="grid-element-border grid-element-border-right">
             <label class="grid-element-language-name" style="text-align: center;">Beginner</label>
         </div>
@@ -29,55 +29,55 @@
             <label class="grid-element-language-name" style="text-align: center;">Expert</label>
         </div>
 
-        <div class="grid-element-border grid-element-border-right">
+        <div class="grid-element-border grid-element-border-right" *ngIf="!isMobile">
             <label class="grid-element-language-name">HTML</label>
         </div>
-        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="5"></app-progress-indicator>
+        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="5" [isMobile]="isMobile" text="HTML"></app-progress-indicator>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
 
-        <div class="grid-element-border grid-element-border-right">
+        <div class="grid-element-border grid-element-border-right" *ngIf="!isMobile">
             <label class="grid-element-language-name">Typescript</label>
         </div>
-        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="4"></app-progress-indicator>
+        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="4" [isMobile]="isMobile" text="Typescript"></app-progress-indicator>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
 
-        <div class="grid-element-border grid-element-border-right">
+        <div class="grid-element-border grid-element-border-right" *ngIf="!isMobile">
             <label class="grid-element-language-name">CSS</label>
         </div>
-        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="4"></app-progress-indicator>
+        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="4" [isMobile]="isMobile" text="CSS"></app-progress-indicator>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
 
-        <div class="grid-element-border grid-element-border-right">
+        <div class="grid-element-border grid-element-border-right" *ngIf="!isMobile">
             <label class="grid-element-language-name">JQuery</label>
         </div>
-        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="2"></app-progress-indicator>
+        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="2" [isMobile]="isMobile" text="JQuery"></app-progress-indicator>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
 
-        <div class="grid-element-border grid-element-border-right">
+        <div class="grid-element-border grid-element-border-right" *ngIf="!isMobile">
             <label class="grid-element-language-name">Python</label>
         </div>
-        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="5"></app-progress-indicator>
+        <app-progress-indicator class="grid-element-border" [maxProgress]="5" [progress]="5" [isMobile]="isMobile" text="Python"></app-progress-indicator>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
         <div class="grid-element-border"></div>
 
-        <div class="grid-element grid-element-border-right">
+        <div class="grid-element grid-element-border-right" *ngIf="!isMobile">
             <label class="grid-element-language-name">Java</label>
         </div>
-        <app-progress-indicator class="grid-element" [maxProgress]="5" [progress]="3"></app-progress-indicator>
+        <app-progress-indicator class="grid-element" [maxProgress]="5" [progress]="3" [isMobile]="isMobile" text="Java"></app-progress-indicator>
         <div class="grid-element"></div>
         <div class="grid-element"></div>
         <div class="grid-element"></div>

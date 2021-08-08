@@ -9,6 +9,8 @@ import { PageUpdateServiceService } from 'src/app/side-circle/page-update-servic
 export class ProgressIndicatorComponent implements OnInit {
     @Input() public maxProgress: number | undefined;
     @Input() public progress: number | undefined;
+    @Input() public isMobile: boolean | undefined;
+    @Input() public text: string | undefined;
 
     public width: string | undefined;
     private extended = false;
