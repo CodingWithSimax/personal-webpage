@@ -1,4 +1,4 @@
-.label-title {
+.label-title[ismobile="false"] {
     position: absolute;
 
     width: min(4vw, 4vh);
@@ -6,11 +6,54 @@
     left: min(5vw, 5vh);
     
     color: white;
-    font-size: max(3vw, 3vh);
+    font-size: min(3vw, 3vh);
     font-weight: bold;
 
     border-style: solid;
     border-color: rgba(0, 0, 0, 0.6);
     border-width: min(5vw, 5vh);
+    border-right-width: 0px;
+}
+
+.label-title[ismobile="true"] {
+    position: absolute;
+    
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding-left: 10px;
+    padding-right: 10px;
+
+    top: 110px;
+
+    color: white;
+    font-size: min(3vw, 3vh);
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    border-style: solid;
+    border-width: 0px;
+}
+
+.label-title-border {
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    
+    border-style: solid;
+    border-width: min(0.5vw, 0.5vh);
+
+    border-width: rgba(0, 0, 0, 0.6);
+}
+.label-title-border-right {
+    right: 0;
+    top: 0;
+    border-left-width: 0px;
+}
+.label-title-border-left {
+    left: 0;
+    top: 0;
     border-right-width: 0px;
 }

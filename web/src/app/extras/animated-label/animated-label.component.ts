@@ -21,36 +21,11 @@ export class AnimatedLabelComponent implements OnInit {
     private chars: Array<string> = 'undefined'.split('');
     private step = 0;
 
-    constructor(private mobileSupportService: MobileSupportService) {}
+    constructor() {}
 
     public ngOnInit(): void {
         this.animateCursor();
         this.animateText();
-
-        this.mobileSupportService.supportUpdate.subscribe(
-            this.supportUpdate.bind(this)
-        );
-    }
-
-    private supportUpdate(data: UpdateData): void {
-        console.log('update: ', data);
-        if (data.isAnimationOn != undefined) {
-            if (this.cursorInterval != undefined) {
-                clearInterval(this.cursorInterval);
-                this.cursorInterval = undefined;
-            }
-            if (this.textInterval != undefined) {
-                clearInterval(this.textInterval);
-                this.textInterval = undefined;
-            }
-            if (data.isAnimationOn == 1) {
-                this.animateCursor();
-                this.animateText();
-            } else if (data.isAnimationOn == 0) {
-                this.curValue = this.value;
-                this.cursorOn = true;
-            }
-        }
     }
 
     private animateCursor(): void {

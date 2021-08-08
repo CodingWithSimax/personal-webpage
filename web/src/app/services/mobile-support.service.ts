@@ -3,16 +3,14 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { textChangeRangeIsUnchanged } from 'typescript';
 
 export interface UpdateData {
-    isMobile: number | undefined;
-    isAnimationOn: number | undefined;
+    isMobile: boolean | undefined;
 }
 
 @Injectable({
     providedIn: 'root',
 })
 export class MobileSupportService {
-    public isAnimationOn = -1;
-    public isMobile = -1;
+    public isMobile: boolean | undefined = undefined;
 
     public supportUpdate: EventEmitter<UpdateData> =
         new EventEmitter<UpdateData>();
@@ -22,35 +20,29 @@ export class MobileSupportService {
         this.update();
     }
 
-    private update() {
+    public getData(): UpdateData {
+        return this.update(false);
+    }
+
+    private update(sendUpdate = true): UpdateData {
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
 
         const isMobile =
             (this.deviceDetectorService.isMobile() &&
                 !this.deviceDetectorService.isTablet()) ||
-            viewportHeight > viewportWidth
-                ? 1
-                : 0;
-        const isAnimationOn =
-            this.deviceDetectorService.isMobile() ||
-            this.deviceDetectorService.isTablet()
-                ? 0
-                : 1;
+            viewportHeight > viewportWidth;
 
         const update: UpdateData = {
-            isMobile: this.isMobile != isMobile ? isMobile : undefined,
-            isAnimationOn:
-                this.isAnimationOn != isAnimationOn ? isAnimationOn : undefined,
+            isMobile:
+                this.isMobile != isMobile || !sendUpdate ? isMobile : undefined,
         };
 
-        if (update.isMobile == 1) update.isAnimationOn = 0;
-        else if (update.isMobile == 0) update.isAnimationOn = 1;
-
-        if (update.isAnimationOn != undefined || update.isMobile != undefined)
+        if (update.isMobile != undefined && sendUpdate)
             this.supportUpdate.emit(update);
 
         this.isMobile = isMobile;
-        this.isAnimationOn = isAnimationOn;
+
+        return update;
     }
 }

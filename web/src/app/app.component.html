@@ -1,4 +1,4 @@
-<app-code-background class="opacity-animation" [style.opacity]="displayMainPage ? '0%' : '100%'"></app-code-background>
+<app-code-background class="opacity-animation" [style.opacity]="displayMainPage ? '0%' : '100%'" *ngIf="!isMobile"></app-code-background>
 
 <app-side-circle class="opacity-animation" [maxRowLength]="6" [activateCircle]="displayMainPage"></app-side-circle>
 
