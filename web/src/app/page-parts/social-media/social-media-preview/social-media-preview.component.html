@@ -1,0 +1,8 @@
+<div class="social-media-preview-flex-container">
+    <div class="social-media-preview-preview" *ngFor="let previewData of previewService.previews; let i = index">
+        <div class="social-media-preview-item" [attr.highlight]="i == selectedPreview">
+            <label class="social-media-preview-title">{{previewData.name}}</label>
+            <button class="social-media-preview-button" (click)="redirect(previewData.url)">Go to {{previewData.platformName}}</button>
+        </div>
+    </div>
+</div>

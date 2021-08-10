@@ -1,6 +1,6 @@
-<div class="social-media-symbol" (click)="redirect()">
-    <img [src]="src" class="social-media-symbol-image">
-    <div class="social-media-symbol-label">
+<div class="social-media-symbol" [attr.isMobile]="isMobile" (click)="showPage()">
+    <img [src]="src" class="social-media-symbol-image" [style.opacity]="symbolOpacity + '%'">
+    <div class="social-media-symbol-label" *ngIf="isMobile">
         <label class="social-media-symbol-label-sub">{{ value }}</label>
     </div>
 </div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Router } from 'express';
 import {
     MobileSupportService,
     UpdateData,
@@ -18,8 +20,6 @@ export class AppComponent {
     private timeout: any;
 
     constructor(private mobileSupportService: MobileSupportService) {
-        window.scrollTo(0, 0);
-
         document.body.style.overflowX = 'hidden';
         document.body.style.overflowY = 'hidden';
     }
@@ -28,12 +28,16 @@ export class AppComponent {
         this.mobileSupportService.supportUpdate.subscribe(
             this.supportUpdate.bind(this)
         );
-        this.supportUpdate(this.mobileSupportService.getData());
 
         this.timeout = setTimeout(() => {
             this.displayMainPage = true;
             document.body.style.overflowY = 'unset';
+            window.scrollTo(0, 0);
         }, 8 * 1000);
+
+        this.supportUpdate(this.mobileSupportService.getData());
+
+        setTimeout(() => window.scrollTo(0, 0), 1);
     }
 
     private supportUpdate(data: UpdateData): void {

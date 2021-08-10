@@ -1,10 +1,14 @@
-.social-media-symbol {
+.social-media-symbol[ismobile="true"] {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     display: flex;
+}
+.social-media-symbol[ismobile="false"] {
+    width: 100%;
+    height: 100%;
 }
 
 .social-media-symbol:hover {
