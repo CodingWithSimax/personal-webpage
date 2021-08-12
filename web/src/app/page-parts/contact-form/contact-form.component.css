@@ -7,7 +7,7 @@
     background-color: #FFC947;    
 }
 
-#contact-form {
+#contact-form[ismobile="false"] {
     position: absolute;
     
     top: calc(50% + 55px);
@@ -19,6 +19,19 @@
     display: grid;
 
     transform: translateY(-50%);
+}
+#contact-form[ismobile="true"] {
+    position: absolute;
+    
+    top: calc(50% + 55px);
+    left: 50%;
+
+    width: calc(100% - 20px);
+    height: calc(100% - 220px);
+
+    transform: translate(-50%, -50%);
+
+    display: grid;
 }
 
 .contact-form-element {

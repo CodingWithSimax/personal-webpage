@@ -50,6 +50,5 @@ export class AppComponent {
                 this.timeout = undefined;
             }
         }
-        console.log('update: ', data);
     }
 }

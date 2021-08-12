@@ -16,8 +16,7 @@ export class PreviewServiceService {
     public previews: Array<PreviewData> = [];
     public index = 0;
 
-    constructor() {
-    }
+    constructor() {}
 
     public addPreview(data: PreviewData): void {
         if (
