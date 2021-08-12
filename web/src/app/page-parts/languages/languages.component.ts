@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {
+    MobileSupportService,
+    UpdateData,
+} from 'src/app/services/mobile-support.service';
 
 @Component({
     selector: 'app-languages',
@@ -6,7 +10,18 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./languages.component.css'],
 })
 export class LanguagesComponent implements OnInit {
-    constructor() {}
+    public isMobile = true;
 
-    ngOnInit(): void {}
+    constructor(private mobileSupportService: MobileSupportService) {}
+
+    public ngOnInit(): void {
+        this.mobileSupportService.supportUpdate.subscribe(
+            this.supportUpdate.bind(this)
+        );
+        this.supportUpdate(this.mobileSupportService.getData());
+    }
+
+    private supportUpdate(data: UpdateData): void {
+        this.isMobile = <boolean>data.isMobile;
+    }
 }

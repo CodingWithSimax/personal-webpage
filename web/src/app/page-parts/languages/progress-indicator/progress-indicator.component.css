@@ -16,4 +16,17 @@
     background-color: #fff;
 
     border-radius: 100px;
+
+    overflow: hidden;
+}
+
+.progress-indicator-text {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: black;
+    font-size: min(3vw, 3vh);
 }

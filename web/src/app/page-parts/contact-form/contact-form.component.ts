@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MessageBoxService } from 'src/app/extras/message-box/message-box.service';
+import {
+    MobileSupportService,
+    UpdateData,
+} from 'src/app/services/mobile-support.service';
+import {
+    ComponentTouchSupport,
+    TouchSupportService,
+} from 'src/app/services/touch-support.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
 import { ContactFormService } from './contact-form.service';
 
@@ -10,19 +18,36 @@ import { ContactFormService } from './contact-form.service';
     styleUrls: ['./contact-form.component.css'],
 })
 export class ContactFormComponent implements OnInit {
+    public isMobile = true;
+    public isTouchDevice = false;
     private contactFormData: { [key: string]: string } = {
         name: '',
         email: '',
         subject: '',
         message: '',
     };
+    public componentTouchSupport: ComponentTouchSupport;
 
     constructor(
         private messageBoxService: MessageBoxService,
-        private contactFormService: ContactFormService
-    ) {}
+        private contactFormService: ContactFormService,
+        private mobileSupportService: MobileSupportService,
+        private touchSupportService: TouchSupportService
+    ) {
+        this.componentTouchSupport =
+            this.touchSupportService.registerComponent(this);
+    }
 
-    public ngOnInit(): void {}
+    public ngOnInit(): void {
+        this.mobileSupportService.supportUpdate.subscribe(
+            this.supportUpdate.bind(this)
+        );
+        this.supportUpdate(this.mobileSupportService.getData());
+    }
+    private supportUpdate(data: UpdateData): void {
+        this.isMobile = <boolean>data.isMobile;
+        this.isTouchDevice = <boolean>data.isTouchDevice;
+    }
 
     public valueUpdate(key: string, value: string): void {
         this.contactFormData[key] = value;

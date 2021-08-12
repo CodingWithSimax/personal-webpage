@@ -12,12 +12,25 @@
     color: gray;
 }
 
-#credits-fontawesome {
+#credits-fontawesome[ismobile="false"] {
     position: absolute;
     bottom: 10%;
     left: 40%;
     text-align: center;
     width: 20%;
+
+    font-size: min(3vw, 3vh);
+}
+#credits-fontawesome[ismobile="true"] {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+
+    width: calc(100% - 30px);
+
+    text-align: center;
+
+    transform: translateX(-50%);
 
     font-size: min(3vw, 3vh);
 }
