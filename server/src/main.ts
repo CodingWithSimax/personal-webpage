@@ -23,7 +23,7 @@ const app = express();
 
 app.set("trust proxy", true);
 
-expressLogger.addExpressApp(app, "main-web");
+expressLogger.addExpressApp(app, "main-web", false);
 
 app.use("/", express.static("./web/dist"));
 app.use("/assets", express.static("./web/src/assets"));
@@ -33,6 +33,8 @@ app.get("/", (req: express.Request, res: express.Response) => {
 });
 
 setupTelegramAPI(app);
+
+expressLogger.addExpressApp(app, "main-web", true);
 
 app.listen(PORT, () => {
     console.log(`Now listening to port ${PORT}`);

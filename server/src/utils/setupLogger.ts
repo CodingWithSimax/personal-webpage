@@ -6,6 +6,7 @@ interface LoggerRequestData {
     method: string;
     path: string;
     applicationName: string;
+    cancelled: boolean;
 }
 interface LoggerUserData {
     requests: Array<LoggerRequestData>;
@@ -18,13 +19,17 @@ export class ExpressLogger {
     private users: { [key: string]: LoggerUserData } = {};
     private interval: NodeJS.Timeout = undefined;
 
-    public addExpressApp(app: express.Express, applicationName: string) {
+    public addExpressApp(
+        app: express.Express,
+        applicationName: string,
+        cancelled: boolean
+    ) {
         app.use(
             (
                 req: express.Request,
                 res: express.Response,
                 next: express.NextFunction
-            ) => this.handleRequest(req, res, next, applicationName)
+            ) => this.handleRequest(req, res, next, applicationName, cancelled)
         );
     }
 
@@ -43,7 +48,8 @@ export class ExpressLogger {
         req: express.Request,
         res: express.Response,
         next: express.NextFunction,
-        applicationName: string
+        applicationName: string,
+        cancelled: boolean
     ) {
         if (Object.keys(this.users).indexOf(req.ip) == -1)
             this.users[req.ip] = {
@@ -58,6 +64,7 @@ export class ExpressLogger {
             method: req.method,
             path: req.path,
             applicationName: applicationName,
+            cancelled: cancelled,
         });
 
         this.startInterval();
@@ -82,6 +89,9 @@ export class ExpressLogger {
                             " ~ " +
                             TerminalColors.FgMagenta +
                             key +
+                            (req.cancelled
+                                ? TerminalColors.FgRed + " [CANCELLED]"
+                                : "") +
                             TerminalColors.Reset
                     );
                 } else {
@@ -97,6 +107,9 @@ export class ExpressLogger {
                                     TerminalColors.FgGreen +
                                     req.path +
                                     TerminalColors.FgWhite +
+                                    (req.cancelled
+                                        ? TerminalColors.FgRed + " [CANCELLED]"
+                                        : "") +
                                     TerminalColors.Reset
                             )
                             .join(TerminalColors.Reset + "; ") +
