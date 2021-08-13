@@ -19,7 +19,6 @@ export function setupTelegramAPI(app: express.Express): void {
             const channelId = fs
                 .readFileSync("./data/telegram_channel_id.txt")
                 .toString();
-            console.log(message);
             bot.sendMessage(
                 channelId,
                 "Anfrage erhalten: \n" +
