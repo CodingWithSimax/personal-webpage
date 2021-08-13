@@ -1,8 +1,8 @@
-<app-code-background class="opacity-animation" [style.opacity]="displayMainPage ? '0%' : '100%'"></app-code-background>
+<app-code-background class="opacity-animation code-background" [style.opacity]="displayMainPage ? '0%' : '100%'" *ngIf="!isMobile"></app-code-background>
 
 <app-side-circle class="opacity-animation" [maxRowLength]="6" [activateCircle]="displayMainPage"></app-side-circle>
 
-<div class="opacity-animation" id="page-grid" [style.top]="displayMainPage ? '0px' : '100vh'">
+<div class="opacity-animation" id="page-grid" [style.top]="displayMainPage ? '0px' : '100vh'" [attr.displayMainPage]="displayMainPage">
     <app-home class="page-part"></app-home>
     <app-languages class="page-part"></app-languages>
     <app-social-media class="page-part"></app-social-media>

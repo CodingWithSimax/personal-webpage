@@ -13,17 +13,16 @@ export async function setupPorts(
         try {
             redirectPath = JSON.parse(<string>req.query.redirection);
         } catch (error) {
-            redirectPath = req.query.redirection
+            redirectPath = req.query.redirection;
         }
-        
+
         console.log("redirecting to " + redirectPath);
         if (redirectPath != null) {
             let result = null;
             for (const portRedirect of config.portRedirects) {
                 if (
-                    portRedirect.prefixes.indexOf(
-                        redirectPath.split(".")[0]
-                    ) > -1
+                    portRedirect.prefixes.indexOf(redirectPath.split(".")[0]) >
+                    -1
                 )
                     result = portRedirect;
             }
@@ -32,7 +31,7 @@ export async function setupPorts(
                 return;
             }
         }
-        
+
         res.json({ error: "error" });
     });
 

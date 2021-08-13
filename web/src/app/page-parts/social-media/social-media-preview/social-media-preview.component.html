@@ -1,0 +1,8 @@
+<div class="social-media-preview-flex-container">
+    <div class="social-media-preview-preview" *ngFor="let previewData of previewService.previews; let i = index">
+        <div class="social-media-preview-item" [attr.highlight]="i == selectedPreview">
+            <label class="social-media-preview-title">{{previewData.name}}</label>
+            <button class="social-media-preview-button" (click)="!this.isTouchDevice ? redirect([previewData.url]) : undefined" (touchstart)="this.isTouchDevice ? this.componentTouchSupport.touchStart(previewData.url, redirect, [previewData.url]) : undefined" (touchend)="isTouchDevice ? this.componentTouchSupport.touchEnd(previewData.url) : undefined">Go to {{previewData.platformName}}</button>
+        </div>
+    </div>
+</div>

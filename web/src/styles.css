@@ -11,10 +11,18 @@ body {
     background-color: #D8E3E7;
 }
 
-#page-grid {
+#page-grid[displaymainpage="true"] {
     position: absolute;
     left: 0px;
     top: 0px;
+    width: 100vw;
+    display: grid;
+    transition: top 1s;
+}
+#page-grid[displaymainpage="false"] {
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100vw;
     display: grid;
     transition: top 1s;
@@ -26,9 +34,17 @@ body {
     height: 100vh;
 }
 
-label, .label {
+label, .label, button {
     font-family: japoki;
 }
 .opacity-animation {
     transition: opacity 1s;
+}
+
+.code-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
 }

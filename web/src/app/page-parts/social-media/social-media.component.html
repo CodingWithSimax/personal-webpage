@@ -11,11 +11,13 @@
 
     <app-label-title value="social media"></app-label-title>
 
-    <div id="social-media-platforms">
-        <app-social-media-symbol style="justify-self: stretch; position: relative;" id="social-media-github" value="CodingWithSimax" src="/assets/images/github-square-brands.svg" href="http://github.simax-dev.net/"></app-social-media-symbol>
-        <app-social-media-symbol style="justify-self: stretch; position: relative;" id="social-media-youtube" value="SimaxDev" src="/assets/images/youtube-square-brands.svg" href="http://yt.simax-dev.net/"></app-social-media-symbol>
-        <app-social-media-symbol style="justify-self: stretch; position: relative;" id="social-media-twitter" value="Simax" src="/assets/images/twitter-square-brands.svg" href="http://twitter.simax-dev.net/"></app-social-media-symbol>
-        <app-social-media-symbol style="justify-self: stretch; position: relative;" id="social-media-facebook" value="Simax" src="/assets/images/facebook-square-brands.svg" href="http://fb.simax-dev.net/"></app-social-media-symbol>
-        <app-social-media-symbol style="justify-self: stretch; position: relative;" id="social-media-discord" value="&lt;Simax/&gt;#0404" src="/assets/images/discord-brands.svg" href="http://dc.simax-dev.net/"></app-social-media-symbol>
+    <div id="social-media-platforms" [attr.isMobile]="isMobile">
+        <app-social-media-symbol class="app-social-media-symbol" [isMobile]="isMobile" [attr.isMobile]="isMobile" id="social-media-github" platformName="Github" value="CodingWithSimax" src="/assets/images/github-square-brands.svg" href="https://github.simax-dev.net/"></app-social-media-symbol>
+        <app-social-media-symbol class="app-social-media-symbol" [isMobile]="isMobile" [attr.isMobile]="isMobile" id="social-media-youtube" platformName="Youtube" value="SimaxDev" src="/assets/images/youtube-square-brands.svg" href="https://yt.simax-dev.net/"></app-social-media-symbol>
+        <app-social-media-symbol class="app-social-media-symbol" [isMobile]="isMobile" [attr.isMobile]="isMobile" id="social-media-twitter" platformName="Twitter" value="Simax" src="/assets/images/twitter-square-brands.svg" href="https://twitter.simax-dev.net/"></app-social-media-symbol>
+        <app-social-media-symbol class="app-social-media-symbol" [isMobile]="isMobile" [attr.isMobile]="isMobile" id="social-media-facebook" platformName="Facebook" value="Simax" src="/assets/images/facebook-square-brands.svg" href="https://fb.simax-dev.net/"></app-social-media-symbol>
+        <app-social-media-symbol class="app-social-media-symbol" [isMobile]="isMobile" [attr.isMobile]="isMobile" id="social-media-discord" platformName="Discord" value="&lt;Simax/&gt;#0404" src="/assets/images/discord-brands.svg" href="https://dc.simax-dev.net/"></app-social-media-symbol>
     </div>
+
+    <app-social-media-preview id="social-media-preview" *ngIf="!isMobile"></app-social-media-preview>
 </div>
