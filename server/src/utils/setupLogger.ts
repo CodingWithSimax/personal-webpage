@@ -69,7 +69,6 @@ export class ExpressLogger {
         for (const key of Object.keys(this.users)) {
             this.users[key].timeout -= 2000;
             if (this.users[key].timeout <= 0) {
-                console.log(this.users[key]);
                 if (this.users[key].requests.length == 1) {
                     const req = this.users[key].requests[0];
                     console.log(
