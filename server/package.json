@@ -1,7 +1,7 @@
 {
   "name": "personal-webpage-server",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "./dist/main.js",
   "scripts": {
     "check": "./node_modules/.bin/eslint './src/**/*.{ts,js}'",
     "precheck": "./node_modules/.bin/prettier --tab-width 4 --write './**/*.{json,ts}'",
