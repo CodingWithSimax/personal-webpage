@@ -17,6 +17,6 @@
         <app-custom-input id="contact-form-subject" class="contact-form-element" (valueUpdate)="valueUpdate('subject', $event)" type="text" style="top:20%" preview="subject" [pageTrigger]="2"></app-custom-input>
         <app-custom-input id="contact-form-message" class="contact-form-element" (valueUpdate)="valueUpdate('message', $event)" type="text" style="top:30%" [rows]="5" [columns]="100" preview="message" [pageTrigger]="2"></app-custom-input>
 
-        <app-custom-button (click)="!isMobile ? onSubmit() : undefined" (touchstart)="isTouchDevice ? componentTouchSupport.touchStart('form-submit', onSubmit) : undefined" (touchend)="isTouchDevice ? componentTouchSupport.touchEnd('form-submit') : undefined" class="contact-form-element" style="top:91%;" value="send message" [pageTrigger]="2"></app-custom-button>
+        <app-custom-button (click)="!isTouchDevice ? onSubmit() : undefined" (touchstart)="isTouchDevice ? componentTouchSupport.touchStart('form-submit', onSubmit) : undefined" (touchend)="isTouchDevice ? componentTouchSupport.touchEnd('form-submit') : undefined" class="contact-form-element" style="top:91%;" value="send message" [pageTrigger]="2"></app-custom-button>
     </div>
 </div>
