@@ -11,8 +11,8 @@ interface LoggerRequestData {
 interface LoggerUserData {
     requests: Array<LoggerRequestData>;
     timeout: number;
-    firstInteraction: number;
-    lastInteraction: number;
+    firstInteraction: Date;
+    lastInteraction: Date;
 }
 
 export class ExpressLogger {
@@ -55,21 +55,58 @@ export class ExpressLogger {
             this.users[req.ip] = {
                 requests: [],
                 timeout: 3000,
-                firstInteraction: new Date().getTime(),
-                lastInteraction: 0,
+                firstInteraction: new Date(),
+                lastInteraction: new Date(),
             };
         this.users[req.ip].timeout = 3000;
-        this.users[req.ip].lastInteraction = new Date().getTime();
-        this.users[req.ip].requests.push({
-            method: req.method,
-            path: req.path,
-            applicationName: applicationName,
-            cancelled: cancelled,
-        });
+        this.users[req.ip].lastInteraction = new Date();
+        let result = false;
+        if (cancelled) {
+            this.users[req.ip].requests = this.users[req.ip].requests.map(
+                (request) => {
+                    if (
+                        request.method === req.method &&
+                        request.path === req.path &&
+                        !result
+                    ) {
+                        result = true;
+                        return {
+                            ...request,
+                            cancelled: true,
+                        };
+                    }
+                    return request;
+                }
+            );
+        }
+        if (!result) {
+            this.users[req.ip].requests.push({
+                method: req.method,
+                path: req.path,
+                applicationName: applicationName,
+                cancelled: cancelled,
+            });
+        }
 
         this.startInterval();
 
         next();
+    }
+
+    private generateTimeStamp(date: Date): string {
+        const d =
+            date.getFullYear() +
+            "-" +
+            ("0" + (date.getMonth() + 1)).slice(-2) +
+            "-" +
+            ("0" + date.getDate()).slice(-2) +
+            " " +
+            ("0" + date.getHours()).slice(-2) +
+            ":" +
+            ("0" + date.getMinutes()).slice(-2) +
+            ":" +
+            ("0" + date.getSeconds()).slice(-2);
+        return `[${d}]`;
     }
 
     private update(): void {
@@ -79,7 +116,13 @@ export class ExpressLogger {
                 if (this.users[key].requests.length == 1) {
                     const req = this.users[key].requests[0];
                     console.log(
-                        TerminalColors.FgBlue +
+                        TerminalColors.Dim +
+                            this.generateTimeStamp(
+                                this.users[key].firstInteraction
+                            ) +
+                            " " +
+                            (!req.cancelled ? TerminalColors.Reset : "") +
+                            TerminalColors.FgBlue +
                             req.method +
                             TerminalColors.FgWhite +
                             " -> " +
@@ -97,30 +140,40 @@ export class ExpressLogger {
                 } else {
                     const requests = this.users[key].requests;
                     console.log(
-                        requests
-                            .map(
-                                (req) =>
-                                    TerminalColors.FgBlue +
-                                    req.method +
-                                    TerminalColors.FgWhite +
-                                    " " +
-                                    TerminalColors.FgGreen +
-                                    req.path +
-                                    TerminalColors.FgWhite +
-                                    (req.cancelled
-                                        ? TerminalColors.FgRed + " [CANCELLED]"
-                                        : "") +
-                                    TerminalColors.Reset
-                            )
-                            .join(TerminalColors.Reset + "; ") +
+                        TerminalColors.Dim +
+                            this.generateTimeStamp(
+                                this.users[key].firstInteraction
+                            ) +
+                            " " +
+                            TerminalColors.Reset +
+                            requests
+                                .map(
+                                    (req) =>
+                                        (req.cancelled
+                                            ? TerminalColors.Dim
+                                            : "") +
+                                        TerminalColors.FgBlue +
+                                        req.method +
+                                        TerminalColors.FgWhite +
+                                        " " +
+                                        TerminalColors.FgGreen +
+                                        req.path +
+                                        TerminalColors.FgWhite +
+                                        (req.cancelled
+                                            ? TerminalColors.FgRed +
+                                              " [CANCELLED]"
+                                            : "") +
+                                        TerminalColors.Reset
+                                )
+                                .join(TerminalColors.Reset + "; ") +
                             TerminalColors.FgWhite +
                             " ~ " +
                             TerminalColors.FgMagenta +
                             key +
                             TerminalColors.FgYellow +
                             " (took " +
-                            (this.users[key].lastInteraction -
-                                this.users[key].firstInteraction) +
+                            (this.users[key].lastInteraction.getTime() -
+                                this.users[key].firstInteraction.getTime()) +
                             "ms)" +
                             TerminalColors.Reset
                     );
