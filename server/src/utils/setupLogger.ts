@@ -1,5 +1,4 @@
 import express = require("express");
-import { Config } from "../config-interface";
 import { TerminalColors } from "./terminalColors";
 
 interface LoggerRequestData {
@@ -23,7 +22,7 @@ export class ExpressLogger {
         app: express.Express,
         applicationName: string,
         cancelled: boolean
-    ) {
+    ): void {
         app.use(
             (
                 req: express.Request,
@@ -120,7 +119,7 @@ export class ExpressLogger {
                             this.generateTimeStamp(
                                 this.users[key].firstInteraction
                             ) +
-                            " " +
+                            `[${req.applicationName}] ` +
                             (!req.cancelled ? TerminalColors.Reset : "") +
                             TerminalColors.FgBlue +
                             req.method +
@@ -151,7 +150,8 @@ export class ExpressLogger {
                                     (req) =>
                                         (req.cancelled
                                             ? TerminalColors.Dim
-                                            : "") +
+                                            : "") + TerminalColors.FgWhite +
+                                            `[${req.applicationName}]` +
                                         TerminalColors.FgBlue +
                                         req.method +
                                         TerminalColors.FgWhite +

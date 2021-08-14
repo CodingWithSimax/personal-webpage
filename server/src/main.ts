@@ -17,7 +17,7 @@ const CONFIG: Config = JSON.parse(
 
 const expressLogger: ExpressLogger = new ExpressLogger();
 
-setupPorts(CONFIG, PORT_REDIRECTS);
+setupPorts(CONFIG, PORT_REDIRECTS, expressLogger);
 
 const app = express();
 

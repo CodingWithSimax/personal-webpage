@@ -1,11 +1,15 @@
 import express = require("express");
 import { Config } from "./config-interface";
+import { ExpressLogger } from "./utils/setupLogger";
 
 export async function setupPorts(
     config: Config,
-    portRedirects: number
+    portRedirects: number,
+    expressLogger: ExpressLogger
 ): Promise<void> {
     const redirectApp = express();
+
+    expressLogger.addExpressApp(redirectApp, "port-redirection", false);
 
     redirectApp.get("/", (req: express.Request, res: express.Response) => {
         let redirectPath = undefined;
@@ -16,7 +20,6 @@ export async function setupPorts(
             redirectPath = req.query.redirection;
         }
 
-        console.log("redirecting to " + redirectPath);
         if (redirectPath != null) {
             let result = null;
             for (const portRedirect of config.portRedirects) {
@@ -34,6 +37,8 @@ export async function setupPorts(
 
         res.json({ error: "error" });
     });
+
+    expressLogger.addExpressApp(redirectApp, "port-redirection", true);
 
     redirectApp.listen(portRedirects, () => {
         console.log(`now listening to ${portRedirects} for redirects.`);
