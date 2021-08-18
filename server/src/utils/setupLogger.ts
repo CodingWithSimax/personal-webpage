@@ -50,6 +50,8 @@ export class ExpressLogger {
         applicationName: string,
         cancelled: boolean
     ) {
+        console.log("got request: ", req.headers, req.headers["X-Real-IP"]);
+
         if (Object.keys(this.users).indexOf(req.ip) == -1)
             this.users[req.ip] = {
                 requests: [],
