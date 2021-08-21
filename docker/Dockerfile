@@ -1,5 +1,5 @@
 FROM node:latest
-WORKDIR /usr/src/working-directory
+WORKDIR /usr/src/personal-webpage
 RUN git clone https://github.com/CodingWithSimax/personal-webpage.git .
 RUN npm install
 COPY . .
