@@ -6,9 +6,11 @@
     "build": "cd ./server && npm run build",
     "postbuild": "cd ./web && npm run build",
     "prestart": "npm run build",
-    "start": "node ./server/dist/main.js",
+    "start": "npm run only_start",
+    "only_start": "node ./server/dist/main.js",
     "preinstall": "cd ./server && npm install",
     "install": "cd ./web && npm install",
+    "postinstall": "npm run build",
     "prepackage_start": "cd ./server && npm install",
     "package_start": "cd ./web && npm install",
     "postpackage_start": "npm start"
