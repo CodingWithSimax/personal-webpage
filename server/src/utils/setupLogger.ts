@@ -152,8 +152,9 @@ export class ExpressLogger {
                                     (req) =>
                                         (req.cancelled
                                             ? TerminalColors.Dim
-                                            : "") + TerminalColors.FgWhite +
-                                            `[${req.applicationName}] ` +
+                                            : "") +
+                                        TerminalColors.FgWhite +
+                                        `[${req.applicationName}] ` +
                                         TerminalColors.FgBlue +
                                         req.method +
                                         TerminalColors.FgWhite +

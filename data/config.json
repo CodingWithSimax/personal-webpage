@@ -5,7 +5,7 @@
             "important data": "important data is in path /etc/nginx/sites-*",
             "fullchain.pem": "/etc/letsencrypt/live/simax-dev.net/fullchain.pem",
             "privkey.pem": "/etc/letsencrypt/live/simax-dev.net/privkey.pem",
-            "all domains": "ptero.simax-dev.net simax-dev.net git.simax-dev.net github.simax-dev.net fb.simax-dev.net yt.simax-dev.net youtube.simax-dev.net twitter.simax-dev.net dc.simax-dev.net discord.simax-dev.net www.simax-dev.net"
+            "all domains": "simax-dev.net cockpit.simax-dev.net git.simax-dev.net github.simax-dev.net fb.simax-dev.net yt.simax-dev.net youtube.simax-dev.net twitter.simax-dev.net dc.simax-dev.net discord.simax-dev.net www.simax-dev.net"
         }
     },
     "portRedirects": [
