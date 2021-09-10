@@ -7,39 +7,39 @@ import { Config } from "./config-interface";
 import { ExpressLogger } from "./utils/setupLogger";
 import { setupConfigs } from "./setup-configs";
 
-setupConfigs().then(() => {
-    // --- //
-    const PORT = 3000;
-    const PORT_REDIRECTS = 3001;
 
-    const CONFIG: Config = JSON.parse(
-        fs.readFileSync("./data/config.json").toString()
-    );
-    // --- //
+// --- //
+const PORT = 3000;
+const PORT_REDIRECTS = 3001;
 
-    const expressLogger: ExpressLogger = new ExpressLogger();
+const CONFIG: Config = JSON.parse(
+    fs.readFileSync("./data/config.json").toString()
+);
+// --- //
 
-    setupPorts(CONFIG, PORT_REDIRECTS, expressLogger);
+const expressLogger: ExpressLogger = new ExpressLogger();
 
-    const app = express();
+setupPorts(CONFIG, PORT_REDIRECTS, expressLogger);
 
-    app.set("trust proxy", true);
+const app = express();
 
-    expressLogger.addExpressApp(app, "main-web", false);
+app.set("trust proxy", true);
 
-    app.use("/", express.static("./web/dist"));
-    app.use("/assets", express.static("./web/src/assets"));
+expressLogger.addExpressApp(app, "main-web", false);
 
-    app.get("/", (req: express.Request, res: express.Response) => {
-        res.sendFile("./web/dist/index.html");
-    });
+app.use("/", express.static("./web/dist"));
+app.use("/assets", express.static("./web/src/assets"));
 
-    setupTelegramAPI(app);
-
-    expressLogger.addExpressApp(app, "main-web", true);
-
-    app.listen(PORT, () => {
-        console.log(`Now listening to port ${PORT}`);
-        console.log("started server");
-    });
+app.get("/", (req: express.Request, res: express.Response) => {
+    res.sendFile("./web/dist/index.html");
 });
+
+setupTelegramAPI(app);
+
+expressLogger.addExpressApp(app, "main-web", true);
+
+app.listen(PORT, () => {
+    console.log(`Now listening to port ${PORT}`);
+    console.log("started server");
+});
+
