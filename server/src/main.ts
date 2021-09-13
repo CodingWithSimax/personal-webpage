@@ -5,7 +5,6 @@ import { setupTelegramAPI } from "./telegram-api";
 import { setupPorts } from "./port-redirects";
 import { Config } from "./config-interface";
 import { ExpressLogger } from "./utils/setupLogger";
-import { setupConfigs } from "./setup-configs";
 
 
 // --- //
