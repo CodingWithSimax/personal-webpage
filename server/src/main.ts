@@ -36,6 +36,9 @@ app.get("/", (req: express.Request, res: express.Response) => {
 setupTelegramAPI(app);
 
 expressLogger.addExpressApp(app, "main-web", true);
+app.use((req: express.Request, res: express.Response) => {
+    res.json({error: "redirect expected"});
+});
 
 app.listen(PORT, () => {
     console.log(`Now listening to port ${PORT}`);
