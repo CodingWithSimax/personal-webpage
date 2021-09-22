@@ -27,6 +27,7 @@ app.set("trust proxy", true);
 expressLogger.addExpressApp(app, "main-web", false);
 
 app.use("/", express.static("./web/dist"));
+app.use("/", express.static("./server/extra_assets"));
 app.use("/assets", express.static("./web/src/assets"));
 
 const handleAngularRequest = (req: express.Request, res: express.Response) => {

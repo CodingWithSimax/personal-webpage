@@ -7,3 +7,4 @@
 /data/telegram_channel_id.txt
 server/dist/port-redirects.js
 server/dist/main.js
+/server/extra_assets
