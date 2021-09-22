@@ -42,7 +42,7 @@ for (const portRedirect of CONFIG.portRedirects) {
         if (prefix.startsWith("/")) {
             console.log("setting prefix " + prefix);
             app.get(prefix, (req: express.Request, res: express.Response) => {
-                res.sendFile("./data/" + portRedirect.url);
+                res.sendFile(path.resolve("./data", portRedirect.url));
             });
         }
     }
