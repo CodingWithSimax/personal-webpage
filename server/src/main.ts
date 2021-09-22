@@ -40,8 +40,9 @@ setupTelegramAPI(app);
 for (const portRedirect of CONFIG.portRedirects) {
     for (const prefix of portRedirect.prefixes) {
         if (prefix.startsWith("/")) {
+            console.log("setting prefix " + prefix);
             app.get(prefix, (req: express.Request, res: express.Response) => {
-                res.send(portRedirect.url);
+                res.sendFile("./data/" + portRedirect.url);
             });
         }
     }
