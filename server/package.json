@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "./dist/main.js",
   "scripts": {
-    "check": "./node_modules/.bin/eslint './src/**/*.{ts,js}'",
-    "precheck": "./node_modules/.bin/prettier --tab-width 4 --write './**/*.{json,ts}'",
+    "check": "eslint ./src/**/*.{ts,js}",
+    "precheck": "prettier --tab-width 4 --write ./**/*.{json,ts}",
     "prebuild": "npm run check",
-    "build": "./node_modules/.bin/tsc",
+    "build": "tsc",
     "prestart": "npm run build",
     "start": "cd ../ && node ./server/dist/main.js"
   },
