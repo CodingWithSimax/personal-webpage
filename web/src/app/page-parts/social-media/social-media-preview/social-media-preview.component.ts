@@ -21,7 +21,7 @@ export class SocialMediaPreviewComponent implements OnInit {
     public selectedPreview = 0;
     private remainingUpdateTime = 5000;
 
-    private interval: NodeJS.Timeout | undefined = undefined;
+    private interval: number | undefined = undefined;
     public componentTouchSupport: ComponentTouchSupport;
 
     constructor(
