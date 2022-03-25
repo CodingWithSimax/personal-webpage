@@ -12,7 +12,9 @@
     "install": "cd ./web && npm install",
     "prepackage_start": "cd ./server && npm install",
     "package_start": "cd ./web && npm install",
-    "postpackage_start": "npm start"
+    "postpackage_start": "npm start",
+    "preproduction":  "npm install",
+    "production": "node ./server/main.js"
   },
   "keywords": [],
   "author": "",
