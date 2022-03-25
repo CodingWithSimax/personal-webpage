@@ -14,7 +14,7 @@
     "package_start": "cd ./web && npm install",
     "postpackage_start": "npm start",
     "preproduction":  "npm install",
-    "production": "node ./server/main.js"
+    "production": "node ./server/dist/main.js"
   },
   "keywords": [],
   "author": "",
