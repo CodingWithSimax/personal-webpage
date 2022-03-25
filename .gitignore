@@ -8,3 +8,5 @@
 server/dist/port-redirects.js
 server/dist/main.js
 /server/extra_assets
+/.scannerwork
+.scannerwork
