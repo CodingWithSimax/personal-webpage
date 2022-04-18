@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "./dist/main.js",
   "scripts": {
-    "check": "eslint ./src/**/*.{ts,js}",
+    "check": "eslint ./src/**/*.ts",
     "precheck": "prettier --tab-width 4 --write ./**/*.{json,ts}",
     "prebuild": "npm run check",
     "build": "tsc",
